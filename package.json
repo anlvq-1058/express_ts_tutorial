@@ -9,7 +9,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "rimraf": "^5.0.5"
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "pg-promise": "^11.5.4",
+    "rimraf": "^5.0.5",
+    "sequelize": "^6.35.2"
   },
   "name": "express_ts_tutorial",
   "version": "1.0.0",
@@ -19,7 +23,11 @@
     "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.17",
+    "@types/pg": "^8.10.9",
+    "@types/sequelize": "^4.28.19",
     "nodemon": "^3.0.2",
+    "sequelize-cli": "^6.6.2",
+    "sequelize-typescript": "^2.1.6",
     "typescript": "^5.3.3"
   },
   "scripts": {
@@ -27,7 +35,7 @@
     "prestart": "npm run build",
     "start": "node dist/controllers/Api/Home.js",
     "predev": "npm run build",
-    "dev": "concurrently \"tsc -w \" \"nodemon dist/index.js\""
+    "dev": "concurrently \"tsc -w \" \"nodemon dist/src/index.js\""
   },
   "author": "",
   "license": "ISC",
