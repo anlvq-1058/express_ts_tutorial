@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.6",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "rimraf": "^5.0.5"
+  },
+  "name": "express_ts_tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/cors": "^2.8.17",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/controllers/Api/Home.js",
+    "predev": "npm run build",
+    "dev": "concurrently \"tsc -w \" \"nodemon dist/index.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
