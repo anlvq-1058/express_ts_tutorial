@@ -1,0 +1,38 @@
+services:
+  backend:
+    restart: always
+    build: .
+    volumes:
+      - ./:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+    depends_on:
+      - db
+    networks:
+      - express-postgres
+    expose: 
+      - 3000
+    ports:
+      - "3000:3000"
+  db:
+    container_name: db
+    restart: always
+    image: postgres:15.5
+    volumes:
+      - ./data:/data/db
+    networks:
+      - express-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+  pgadmin:
+    restart: always
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 5050
+    ports:
+      - "5050:5050"
+networks:
+  express-postgres:
